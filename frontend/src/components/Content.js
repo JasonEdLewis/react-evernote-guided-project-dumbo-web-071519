@@ -11,7 +11,26 @@ import Instructions from './Instructions';
           refactor to get this Content component to work.
 */
 class Content extends Component {
+
+
+
+  state={
+    allNotes: []
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/api/v1/notes')
+    .then(r=> r.json())
+    .then(notes =>{
+      this.setState({
+       allNotes: notes 
+      })
+    })
+  }
+
   renderContent = () => {
+// all notes props here
+   
     if (false) {
       return <NoteEditor />;
     } else if (false) {
